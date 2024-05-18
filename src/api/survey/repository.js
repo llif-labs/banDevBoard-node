@@ -1,4 +1,6 @@
 const SurveyRepository = {
+  getSize: `SELECT MAX(CAST(SUBSTRING_INDEX(q.no, '-', 1) AS UNSIGNED INTEGER)) AS max_value
+            FROM question q;`,
   get: `SELECT q.*,
                (SELECT id FROM question WHERE id < q.id ORDER BY id DESC LIMIT 1) AS previous_id,
                (SELECT id FROM question WHERE id > q.id ORDER BY id ASC LIMIT 1) AS next_id,
@@ -12,11 +14,15 @@ const SurveyRepository = {
                            )
                    ) as answer
         FROM question q
-                 LEFT JOIN answer a ON q.id = a.question_id
+            LEFT JOIN answer a
+        ON q.id = a.question_id
         WHERE q.id = ?
         GROUP BY q.id
         ORDER BY q.id;
-  `
+  `,
+  save: `INSERT INTO bom(fileInfo, personal, survey, etc, duplicate, answer) VALUES (?,?,?,?,?,?)`,
+  getQuestion: `SELECT * FROM question`,
+  getBom: `SELECT * FROM bom WHERE id = ?`
 }
 
 export default SurveyRepository
