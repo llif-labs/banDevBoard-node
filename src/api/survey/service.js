@@ -66,15 +66,14 @@ const SurveyService = {
         }
       }
 
-      console.log(item.id, item.no, item.title, num, cnt, value)
-
       if (!temp[item.id]) {
         temp = {
           ...temp,
           [item.id]: {
             no: item.no,
             question: item.title,
-            answer: [cnt, value]
+            answer: [cnt, value],
+            unit: item.unit
           }
         }
       } else {
