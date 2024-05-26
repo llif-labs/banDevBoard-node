@@ -2,6 +2,7 @@ import dbConn from "../../util/dbConfig/dbConn.js";
 import SurveyRepository from "./repository.js";
 import {gpt} from "../../util/gptConfig/index.js";
 import statusResponse from "../../util/statusResponse/index.js";
+import convertSurvey from "../../util/convertSurvey/index.js";
 
 const SurveyService = {
   getSize: async (req, res) => {
@@ -40,10 +41,7 @@ const SurveyService = {
 
     const keysToParse = ['fileInfo', 'personal', 'survey', 'etc', 'answer'];
 
-    const bomJson = Object.keys(bom).reduce((acc, key) => {
-      acc[key] = keysToParse.includes(key) ? JSON.parse(bom[key]) : bom[key];
-      return acc;
-    }, {});
+    const bomJson = convertSurvey(bom)
 
     let temp = {}
     Object.entries(bomJson.answer).map(([key, value]) => {
