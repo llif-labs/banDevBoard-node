@@ -10,7 +10,10 @@ const SurveyRepository = {
                                'question_id', a.question_id,
                                'title', a.title,
                                'placeholder', a.placeholder,
-                               'unit', a.unit
+                               'unit', a.unit,
+                               'infomation_type', a.infomation_type,
+                               'infomation_title', a.infomation_title,
+                               'infomation', a.infomation
                            )
                    ) as answer
         FROM question q
