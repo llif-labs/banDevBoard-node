@@ -11,6 +11,9 @@ const SurveyRepository = {
                                'title', a.title,
                                'placeholder', a.placeholder,
                                'unit', a.unit
+                               'infomation_type', a.infomation_type,
+                               'infomation_title', a.infomation_title,
+                               'infomation', a.infomation
                            )
                    ) as answer
         FROM question q
