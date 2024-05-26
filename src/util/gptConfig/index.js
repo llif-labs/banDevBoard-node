@@ -4,9 +4,7 @@ const message = `\n\n위 키워드들을 자연스럽게 하나의 과정을 설
 
 export const gpt = (keywords) => {
 
-  const openai = new OpenAI({apiKey: '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'});
-
-  console.log(keywords + message)
+  const openai = new OpenAI({apiKey: ''});
 
   return new Promise(async (resolve, reject) => {
     const result = openai.chat.completions.create({
