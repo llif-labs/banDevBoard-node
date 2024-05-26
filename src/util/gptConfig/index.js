@@ -4,7 +4,7 @@ const message = `\n\n위 키워드들을 자연스럽게 하나의 과정을 설
 
 export const gpt = (keywords) => {
 
-  const openai = new OpenAI({apiKey: 'sk-proj-02Eu6k2ZbU9R0uL2qBy7T3BlbkFJ53Zpo0lGB1bkdVMG9m6H'});
+  const openai = new OpenAI({apiKey: ''});
 
   console.log(keywords + message)
 
