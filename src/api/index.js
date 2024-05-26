@@ -7,4 +7,6 @@ const apiRouter = Router()
 apiRouter.use('/survey', surveyRouter)
 apiRouter.use('/upload', uploadRouter)
 
+apiRouter.use('/admin', adminRouter)
+
 export default apiRouter
